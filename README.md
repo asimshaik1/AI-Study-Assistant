@@ -205,16 +205,21 @@ Approximately **8 hours** of active development.
 
 ## Screenshots
 
-Add screenshots here before submission.
+### Home Page
 
-Example:
+![Home Page](screenshots/home.png)
 
-```
-screenshots/home.png
-screenshots/dashboard.png
-screenshots/flashcards.png
-screenshots/quiz.png
-```
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Flashcards
+
+![Flashcards](screenshots/flashcards.png)
+
+### Quiz
+
+![Quiz](screenshots/quiz.png)
 
 ---
 
