@@ -5,12 +5,11 @@ export const saveStudyPack = async (req, res) => {
     const { title, summary, flashcards, quiz } = req.body;
 
     const studyPack = await StudyPack.create({
-      user: req.user.id,
-      title,
-      summary,
-      flashcards,
-      quiz,
-    });
+  title,
+  summary,
+  flashcards,
+  quiz,
+});
 
     res.status(201).json({
       success: true,
@@ -29,9 +28,9 @@ export const saveStudyPack = async (req, res) => {
 };
 export const getStudyPacks = async (req, res) => {
   try {
-    const studyPacks = await StudyPack.find({
-      user: req.user.id,
-    }).sort({ createdAt: -1 });
+    const studyPacks = await StudyPack.find().sort({
+  createdAt: -1,
+});
 
     res.status(200).json({
       success: true,

@@ -1,0 +1,26 @@
+{
+  "name": "flam-ai-study-assistant",
+  "version": "1.0.0",
+  "description": "An AI-powered Study Assistant built with React, Node.js, Express, MongoDB, and Google Gemini API. The application converts free-form study notes or topics into structured learning material, including summaries, flashcards, and quizzes, presented through an interactive user interface.",
+  "main": "index.js",
+  "scripts": {
+  "client": "npm --prefix client run dev",
+  "server": "npm --prefix server run dev",
+  "dev": "concurrently \"npm run server\" \"npm run client\""
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asimshaik1/AI-Study-Assistant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/asimshaik1/AI-Study-Assistant/issues"
+  },
+  "homepage": "https://github.com/asimshaik1/AI-Study-Assistant#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.4"
+  }
+}

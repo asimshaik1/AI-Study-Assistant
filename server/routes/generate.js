@@ -16,10 +16,7 @@ router.post("/", async (req, res) => {
 
     const result = await generateStudyPack(notes);
 
-    res.json({
-      success: true,
-      data: result,
-    });
+    res.json(result);
   } catch (error) {
     console.error("Gemini Error:", error);
 

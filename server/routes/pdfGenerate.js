@@ -60,13 +60,12 @@ router.post("/", upload.single("pdf"), async (req, res) => {
 
     await unlink(req.file.path);
 
-    res.json({
-      success: true,
-      data: studyPack,
-    });
+    res.json(studyPack);
 
   } catch (error) {
-    console.error(error);
+    console.error("PDF Route Error:");
+console.error(error);
+console.error(error.stack);
 
     if (req.file) {
       try {
@@ -77,6 +76,7 @@ router.post("/", upload.single("pdf"), async (req, res) => {
     res.status(500).json({
       success: false,
       message: error.message,
+stack: process.env.NODE_ENV !== "production" ? error.stack : undefined,
     });
   }
 });

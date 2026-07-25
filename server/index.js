@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import pdfGenerateRoute from "./routes/pdfGenerate.js";
 import { connectDB } from "./config/db.js";
-import authRoute from "./routes/auth.js";
+
 import studyPackRoute from "./routes/studyPack.js";
 
 dotenv.config();
@@ -23,7 +23,7 @@ app.post("/test", (req, res) => {
     message: "POST is working!",
   });
 });
-app.use("/api/auth", authRoute);
+
 app.use("/api/studypacks", studyPackRoute);
 
 app.get("/", (req, res) => {

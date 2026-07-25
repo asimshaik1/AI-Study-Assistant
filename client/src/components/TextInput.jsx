@@ -19,7 +19,7 @@ function TextInput() {
 
     try {
       setLoading(true);
-      const token = localStorage.getItem("token");  
+       
 
       let response;
 
@@ -27,24 +27,16 @@ if (pdfFile) {
   response = await uploadPDF(pdfFile);
   
 
-await api.post(
-  "/studypacks",
-  {
-    title: pdfFile.name,
-    summary: response.data.summary,
-    flashcards: response.data.flashcards,
-    quiz: response.data.quiz,
-  },
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-);
+await api.post("/studypacks", {
+  title: pdfFile.name,
+  summary: response.summary,
+  flashcards: response.flashcards,
+  quiz: response.quiz,
+});
 
 navigate("/dashboard", {
   state: {
-    studyPack: response.data,
+    studyPack: response,
   },
 });
 
@@ -53,33 +45,29 @@ setPdfFile(null);
 } else {
   response = await generateStudyPack(notes);
 
-await api.post(
-  "/studypacks",
-  {
-    title: "Study Pack",
-    summary: response.data.summary,
-    flashcards: response.data.flashcards,
-    quiz: response.data.quiz,
-  },
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-);
+await api.post("/studypacks", {
+  title: "Study Pack",
+  summary: response.summary,
+  flashcards: response.flashcards,
+  quiz: response.quiz,
+});
 
 navigate("/dashboard", {
   state: {
-    studyPack: response.data,
+    studyPack: response,
   },
 });
 }
     } catch (error) {
-      console.error(error);
-      alert("Failed to generate study pack.");
-    } finally {
-      setLoading(false);
-    }
+  console.error("Full error:", error);
+
+  if (error.response) {
+    console.log("Status:", error.response.status);
+    console.log("Response:", error.response.data);
+  }
+
+  alert("Failed to generate study pack.");
+}
   };
 
   return (
