@@ -221,17 +221,7 @@ Approximately **8 hours** of active development.
 
 ![Quiz](screenshots/quiz.png)
 
----
 
-## Demo
-
-Include a short screen recording demonstrating:
-
-- Generating study material
-- Flashcards
-- Quiz
-- Study history
-- Error handling (if applicable)
 
 ---
 
